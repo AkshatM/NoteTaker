@@ -2,6 +2,10 @@
 
 This is a note-taking app that lets you take notes, built with React and Semantic UI.
 
+# Usage
+
+Just open `index.html`, and see the magic!
+
 # Features
 
 - Mobile-optimised, with separate view in mobile and web browsers.
