@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Hire me, Zenefits!</title>
+
+    <!--Zenefits favicon-->
+    <link rel='shortcut icon' href='images/favicon.ico' type='image/x-icon' />
+    <!--Semantic UI framework, for building cards that are responsive to mobile-->
+    <link rel="stylesheet" href="https://oss.maxcdn.com/semantic-ui/2.0.7/semantic.min.css" />
+    <!--Custom styling-->
+    <link rel="stylesheet" href="stylesheets/custom.css" />
+    
+    <!--Semantic UI needs jQuery-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!--Semantic UI Javascript-->
+    <script type="text/javascript" src="https://oss.maxcdn.com/semantic-ui/2.0.7/semantic.min.js"></script>
+    <!--PersistJS client persistent data store (for use across mobile and web) -->
+    <script type="text/javascript" src="build/persist-min.js"></script>
+    <!--Moment.js for date formatting (thank god for this library)-->
+    <script type="text/javascript" src="build/moment.min.js"></script>
+
+</head>
+
+<!--Ugly cross-broswer hack for PersistJS; needs better design-->
+<body onload='load_data();'>
+    <div class="ui text container">
+        <h1 class="ui header">Note Taker</h1>
+        <p>A simple note taking app for our use.</p>
+    </div>
+    <div class="ui text container">
+        <div id="note-container"></div>
+    </div>
+
+    <!--React JS-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+    <!--Custom React Javascript-->
+    <script type="text/javascript" src="build/notes-react.js"></script>
+
+</body>
+
+</html>
