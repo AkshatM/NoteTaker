@@ -25,19 +25,20 @@
 
 </head>
 
-<!--Ugly cross-broswer hack for PersistJS; needs better design-->
+<!-- onload is an ugly cross-broswer hack for PersistJS; needs better design, but should work for now-->
 <body onload='load_data();'>
     <div class="ui text container">
         <h1 class="ui header">Note Taker</h1>
         <p>A simple note taking app for our use.</p>
     </div>
     <div class="ui text container">
+        <!--The next div will be dynamically updated by React - head over to notes-react.js to see what it does-->
         <div id="note-container"></div>
     </div>
 
     <!--React JS-->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
-    <!--Custom React Javascript-->
+    <!--Custom React Javascript; handles everything on the page.-->
     <script type="text/javascript" src="build/notes-react.js"></script>
 
 </body>
