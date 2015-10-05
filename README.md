@@ -6,10 +6,29 @@ This is a note-taking app that lets you take notes, built with React and Semanti
 
 Just open `index.html`, and see the magic!
 
+# Development
+
+If you feel you want to change the code, I generally find the best way is to edit the JSX in the jsx/ folder and allow Babel or the (now obsolete) [react-tools](https://facebook.github.io/react/blog/2015/06/12/deprecating-jstransform-and-react-tools.html) on NPM to automatically build to the build/ folder.
+
+With react-tools, type into a terminal while on the root directory:
+
+```
+jsx --watch jsx/ build/ [--no-cache-dir]
+```
+where the `--no-cache-dir` prevents the creation of a cache directory containing a history of your previous builds. You can enable it if you want, but for a project of this size it just gets in the way.
+ 
+If using Babel from NPM  instead:
+
+```
+babel jsx/ --watch --build/ build
+```
+
+(although please consult the [docs](https://facebook.github.io/react/docs/getting-started.html)).
+
 # Features
 
-- Mobile-optimised, with separate view in mobile and web browsers.
-- Persistent client-side storage. Your notes don't go away if you refresh.
+- Mobile-optimised, with separate look and feel in mobile and web browsers.
+- Persistent client-side storage. Your notes don't go away if you refresh - so long as you use the same browser to access it (and don't delete your cache!), you should be fine.
 - Cross-browser compliance.
 
 # Technologies
@@ -24,7 +43,7 @@ In addition, it *attempts* to imitate Flux architecture by tightly integrating c
 # How it Works
 
 ## Overview
-Notes are organised as Semantic UI cards, widgets with the unique distinction of being mobile-first. The content of each card is rendered as a `contenteditable` div, allowing the user to simply type in his notes and proceed. Notes can be deleted and added on whim, and all notes are timestamped with the moment they were created. Semantic UI's `stackable` container allows a flexible gridlike display of these cards.
+Notes are organised as Semantic UI cards, which are widgets with the unique distinction of being mobile-first. The content of each card is rendered as a `contenteditable` div, allowing the user to simply type in his notes and proceed. Notes can be deleted and added on whim, and all notes are timestamped with the moment they were created. Semantic UI's `stackable` container allows a flexible gridlike display of these cards.
 
 A global store keeps track of the *state* of each card. The store itself is organised as an `Array` of `Objects` - each object represents a card, and contains the timestamp of the card as well as its contents. The order of these objects corresponds to the ordering of each card in the grid. The store itself is a PersistJS global store - such a store degrades gracefully through browser-supported storage options, starting from a default of `localStorage` and, if not found, moving on steadily through `sessionStorage` and finally to other options.
 
