@@ -140,7 +140,7 @@ var NotesContainer = React.createClass({
                 // add new object to our copy of global state
                 updated_state.push({
                         time: current_time,
-                        description: 'Click on the content or the title to edit it!'
+                        description: 'Click on this content to edit it!'
                     });
 
                 // persist this updated copy in store (in other words, update the global 
