@@ -1,10 +1,10 @@
 # About
 
-This is a note-taking app that lets you take notes, built with React and Semantic UI.
+This is a note-taking app that lets you take notes, built with React and Semantic UI, built in about six hours.
 
 # Usage
 
-Just open `index.html`, and see the magic!
+Just open `index.html`, and see the magic! Or visit the GitHub site [here](akshatm.github.io/NoteTaker).
 
 # Development
 
@@ -68,13 +68,9 @@ The React hierarchy is structured as follows:
 
 ## React
 
-Ideally, I would have used Ember.js (because I know it's being used at Zenefits) - however, since I was asked to do this quickly and had never had experience with Ember before, I chose to work with a framework I knew well and generally trusted to handle client-side HTML generation to optimise speed and performance. 
-
-From the little I had read of Ember, it seemed that a Handlebars server-side rendering engine would be needed in order to make my page dynamic - a complicating issue, since I did not want to use a server at all. React, on the other hand, was purely client-side, featured a powerful and simple object model based on finite state machines optimised for rapid development, and operated as pure Javascript. It also did not take a toll on browsers, and CDNs for it already existed. Those were the reasons I finally chose React.
+React is purely client-side, featured a powerful and simple object model based on finite state machines optimised for rapid development, and operated as pure Javascript. It also does not take a toll on browsers, and CDNs for it already exist. Those were the reasons I finally chose React.
 
 ## Semantic UI
-
-Since I'm interviewing for a Javascript position, I decided to eschew Javascript solutions to simple styling problems and let the actual HTML/CSS experts handle it best - Javascript shines at handling dynamic content, and using it for static content seemed like a waste of energy. Time constraints also meant optimising for a minimal design, and (since I want to impress) an elegant one at that. All of these design constraints necessitated a framework.
 
 I had decided on a card-based design early on, and Semantic UI was the only framework I knew that featured mobile-optimised cards. Bootstrap v4 cards were an early choice, but simple experimentation revealed that they were not optimised for mobile, distorting and stretching their content unnaturally when the viewport was decreased (which is, I imagine, what you get for using an alpha release). 
 
@@ -111,5 +107,3 @@ I had two options:
 After several unsuccessful attempts to work around this problem, I finally hit upon a drastic solution - after a successful update in state, I *unmounted* and *remounted* the `<NoteContainer />` in the same node, effectively achieving the same effect as refreshing the browser with no cost to user experience. This was not a clean solution - it meant forcing React to throw away its optimised diffing algorithm and rendering all of the notes each time a single note was deleted - but it had the advantage of working and was not too expensive on the browser (indeed, for a small number of notes, the performance improvement in a minimal diff is insignificant compared to rendering it all from scratch). 
 
 So not a clean solution - but the performance hit is minimal, it is guaranteed correct, and you can't really tell the difference from a user's perspective. 
-
-Thanks, Zenefits. If you liked my solution, do hire me!
